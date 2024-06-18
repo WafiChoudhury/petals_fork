@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Dict, Optional, Sequence, Union
 
 import torch
-import torch.mps
+# import torch.mps
 from hivemind.utils.logging import get_logger
 from transformers import PretrainedConfig
 
@@ -240,8 +240,8 @@ def measure_compute_rps(
 def synchronize(device: torch.device):
     if device.type == "cuda":
         torch.cuda.synchronize(device)
-    elif device.type == "mps":
-        torch.mps.synchronize()
+    # elif device.type == "mps":
+    #     torch.mps.synchronize()
 
 
 def get_device_name(device: torch.device) -> str:
